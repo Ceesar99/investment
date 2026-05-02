@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — CryptoVault</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fafaf8;--bg-2:#f4f3ef;--bg-3:#eeecea;--card:#ffffff;--border:#e8e5df;--border-2:#d4cfc7;--ink:#1a1814;--ink-2:#2d2a25;--ink-3:#4a453e;--muted:#7a7468;--muted-2:#a09890;--gold:#b8860b;--gold-2:#d4a017;--gold-bg:rgba(184,134,11,0.08);--gold-border:rgba(184,134,11,0.25);--green:#16a34a;--red:#dc2626;--shadow-sm:0 1px 3px rgba(26,24,20,0.06);--nav-bg:rgba(250,250,248,0.94);--r:6px;--r2:12px;--r3:20px}
+[data-theme="dark"]{--bg:#0e0d0b;--bg-2:#141310;--bg-3:#1c1a16;--card:#1a1814;--border:rgba(255,255,255,0.08);--border-2:rgba(255,255,255,0.14);--ink:#f5f2ec;--ink-2:#e0dbd2;--ink-3:#b8b0a4;--muted:#7a7468;--muted-2:#4a453e;--gold:#c9a84c;--gold-2:#e0be6a;--gold-bg:rgba(201,168,76,0.08);--gold-border:rgba(201,168,76,0.25);--shadow-sm:0 1px 3px rgba(0,0,0,0.3);--nav-bg:rgba(14,13,11,0.94)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;transition:background .35s,color .35s}
+a{text-decoration:none;color:inherit}
+.display{font-family:'Playfair Display',serif;line-height:1.08;letter-spacing:-.02em}
+.container{max-width:1180px;margin:0 auto;padding:0 40px}
+@media(max-width:768px){.container{padding:0 20px}}
+#navbar{position:fixed;top:0;left:0;right:0;z-index:999;padding:18px 0;transition:all .35s;background:var(--nav-bg);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);box-shadow:var(--shadow-sm)}
+.nav-inner{display:flex;align-items:center}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-icon{width:34px;height:34px;background:linear-gradient(135deg,var(--gold),var(--gold-2));border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff}
+.logo-name{font-family:'Playfair Display',serif;font-size:19px;font-weight:500;color:var(--ink)}
+.logo-name span{color:var(--gold)}
+.nav-center{flex:1;display:flex;justify-content:center}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{font-size:14px;color:var(--muted);padding:8px 14px;border-radius:var(--r);transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.theme-btn{width:38px;height:38px;border-radius:var(--r2);background:var(--bg-2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--muted);transition:all .2s}
+.theme-btn:hover{color:var(--gold);border-color:var(--gold-border)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif;font-weight:500;cursor:pointer;transition:all .22s;border-radius:var(--r2);border:none;white-space:nowrap;text-decoration:none}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#fff;padding:9px 20px;font-size:13px;font-weight:600}
+.btn-gold:hover{transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--ink);border:1.5px solid var(--border-2);padding:9px 20px;font-size:13px}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;margin-left:8px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:65px;left:0;right:0;bottom:0;background:var(--bg);z-index:998;padding:24px;flex-direction:column;border-top:1px solid var(--border);transform:translateX(100%);transition:transform .3s ease}
+.mobile-menu.open{transform:translateX(0)}
+.mobile-menu a{display:block;padding:14px 0;font-size:17px;color:var(--ink);border-bottom:1px solid var(--border)}
+.mob-actions{margin-top:28px;display:flex;flex-direction:column;gap:12px}
+@media(max-width:900px){.nav-center{display:none}.hamburger{display:flex}.mobile-menu{display:flex}.nav-right .btn-outline,.nav-right .btn-gold{display:none}}
+.page-wrap{display:grid;grid-template-columns:260px 1fr;gap:60px;padding-top:120px;padding-bottom:100px;align-items:start}
+@media(max-width:900px){.page-wrap{grid-template-columns:1fr;padding-top:100px}}
+.toc{position:sticky;top:100px}
+.toc-title{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:2px}
+.toc-list a{font-size:13px;color:var(--muted);padding:6px 10px;border-radius:var(--r);display:block;transition:all .2s;border-left:2px solid transparent}
+.toc-list a:hover{color:var(--ink);background:var(--bg-2);border-left-color:var(--gold)}
+.toc-list a.active{color:var(--gold);background:var(--gold-bg);border-left-color:var(--gold);font-weight:500}
+@media(max-width:900px){.toc{display:none}}
+.legal-header{margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid var(--border)}
+.legal-header h1{font-size:clamp(36px,4vw,52px);margin-bottom:12px;color:var(--ink)}
+.legal-header .meta{font-size:13px;color:var(--muted);display:flex;gap:20px;flex-wrap:wrap}
+.legal-section{margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid var(--border);scroll-margin-top:100px}
+.legal-section:last-child{border-bottom:none;margin-bottom:0}
+.legal-section h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:400;color:var(--ink);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.legal-section h2 .sec-num{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--gold);background:var(--gold-bg);border:1px solid var(--gold-border);padding:3px 8px;border-radius:4px;font-family:'Outfit',sans-serif}
+.legal-section h3{font-size:16px;font-weight:600;color:var(--ink);margin:20px 0 10px}
+.legal-section p{font-size:14px;color:var(--ink-3);line-height:1.8;margin-bottom:12px}
+.legal-section p:last-child{margin-bottom:0}
+.legal-section ul{padding-left:20px;margin-bottom:12px;display:flex;flex-direction:column;gap:8px}
+.legal-section li{font-size:14px;color:var(--ink-3);line-height:1.7}
+.legal-section a{color:var(--gold)}
+.info-box{background:var(--gold-bg);border:1px solid var(--gold-border);border-radius:var(--r2);padding:16px 20px;margin:20px 0;font-size:13px;color:var(--ink-3);line-height:1.7}
+.data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px}
+.data-table th{background:var(--bg-2);padding:10px 16px;text-align:left;font-weight:600;color:var(--ink-3);border-bottom:2px solid var(--border)}
+.data-table td{padding:10px 16px;border-bottom:1px solid var(--border);color:var(--ink-3);vertical-align:top}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr:hover td{background:var(--bg-2)}
+footer{background:var(--bg-2);border-top:1px solid var(--border);padding:40px 0 24px}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--muted-2)}
+.footer-links{display:flex;gap:16px}
+.footer-links a{font-size:12px;color:var(--muted);transition:color .2s}
+.footer-links a:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="../index.html" class="logo"><div class="logo-icon">V</div><span class="logo-name">Crypto<span>Vault</span></span></a>
+      <div class="nav-center"><div class="nav-links"><a href="../index.html#features">Features</a><a href="../index.html#plans">Plans</a><a href="about.html">About</a><a href="contact.html">Contact</a></div></div>
+      <div class="nav-right">
+        <button class="theme-btn" onclick="toggleTheme()" title="Toggle dark mode">
+          <svg id="sun-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <svg id="moon-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>
+        </button>
+        <a href="login.html" class="btn btn-outline">Sign In</a>
+        <a href="register.html" class="btn btn-gold">Open Account →</a>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html">Home</a><a href="../index.html#plans">Plans</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+  <div class="mob-actions"><a href="login.html" class="btn btn-outline" style="text-align:center;display:block">Sign In</a><a href="register.html" class="btn btn-gold" style="text-align:center;justify-content:center">Open Account →</a></div>
+</div>
+
+<div class="container">
+  <div class="page-wrap">
+    <aside class="toc">
+      <div class="toc-title">On this page</div>
+      <ul class="toc-list">
+        <li><a href="#overview" class="active">1. Overview</a></li>
+        <li><a href="#data-collect">2. Data We Collect</a></li>
+        <li><a href="#how-use">3. How We Use Data</a></li>
+        <li><a href="#sharing">4. Data Sharing</a></li>
+        <li><a href="#cookies">5. Cookies</a></li>
+        <li><a href="#security-data">6. Data Security</a></li>
+        <li><a href="#retention">7. Data Retention</a></li>
+        <li><a href="#rights">8. Your Rights</a></li>
+        <li><a href="#children">9. Children's Privacy</a></li>
+        <li><a href="#changes">10. Policy Changes</a></li>
+        <li><a href="#contact-privacy">11. Contact</a></li>
+      </ul>
+    </aside>
+
+    <main>
+      <div class="legal-header">
+        <h1 class="display">Privacy<br><em>Policy</em></h1>
+        <div class="meta">
+          <span>📅 Last updated: 1 January 2025</span>
+          <span>🔒 GDPR & data protection compliant</span>
+        </div>
+        <div class="info-box" style="margin-top:20px">
+          Your privacy matters to us. This Privacy Policy explains what personal data CryptoVault collects, why we collect it, how we use it, and your rights regarding your data.
+        </div>
+      </div>
+
+      <div class="legal-section" id="overview">
+        <h2><span class="sec-num">01</span> Overview</h2>
+        <p>CryptoVault Ltd ("we," "us," "our") operates the CryptoVault platform available at cryptovault.io. This Privacy Policy applies to all users of our platform and services.</p>
+        <p>We are committed to protecting your personal information and your right to privacy. We process personal data in accordance with applicable data protection laws, including the General Data Protection Regulation (GDPR) where applicable.</p>
+        <p>By using our platform, you consent to the collection and use of your personal data as described in this policy.</p>
+      </div>
+
+      <div class="legal-section" id="data-collect">
+        <h2><span class="sec-num">02</span> Data We Collect</h2>
+        <h3>2.1 Information You Provide</h3>
+        <table class="data-table">
+          <thead><tr><th>Data Type</th><th>Examples</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td>Identity Data</td><td>Full name, date of birth, nationality</td><td>Account creation, KYC verification</td></tr>
+            <tr><td>Contact Data</td><td>Email address, phone number</td><td>Account communication, 2FA</td></tr>
+            <tr><td>Financial Data</td><td>Wallet addresses, transaction hashes, deposit amounts</td><td>Processing deposits and withdrawals</td></tr>
+            <tr><td>KYC Documents</td><td>Government ID, proof of address</td><td>Identity verification, AML compliance</td></tr>
+            <tr><td>Account Preferences</td><td>Investment plan selections, notification settings</td><td>Service personalisation</td></tr>
+          </tbody>
+        </table>
+        <h3>2.2 Data Collected Automatically</h3>
+        <ul>
+          <li><strong>Log Data:</strong> IP address, browser type, pages visited, timestamps, error reports</li>
+          <li><strong>Device Data:</strong> Device type, operating system, unique device identifiers</li>
+          <li><strong>Usage Data:</strong> Features used, actions taken, session duration</li>
+          <li><strong>Security Data:</strong> Login attempts, 2FA events, account activity logs</li>
+        </ul>
+      </div>
+
+      <div class="legal-section" id="how-use">
+        <h2><span class="sec-num">03</span> How We Use Your Data</h2>
+        <p>We use your personal data for the following purposes:</p>
+        <ul>
+          <li><strong>Account Management:</strong> Creating and managing your account, authenticating login sessions</li>
+          <li><strong>Service Delivery:</strong> Processing deposits, crediting profits, executing withdrawals</li>
+          <li><strong>KYC & AML Compliance:</strong> Verifying your identity and monitoring for suspicious activity</li>
+          <li><strong>Security:</strong> Detecting and preventing fraud, unauthorized access, and abuse</li>
+          <li><strong>Communication:</strong> Sending transaction confirmations, account alerts, and support responses</li>
+          <li><strong>Platform Improvement:</strong> Analysing usage patterns to improve features and user experience</li>
+          <li><strong>Legal Obligations:</strong> Complying with applicable laws, regulations, and court orders</li>
+        </ul>
+        <p>We rely on the following legal bases for processing: contract performance, legal obligation, legitimate interests, and — where required — your explicit consent.</p>
+      </div>
+
+      <div class="legal-section" id="sharing">
+        <h2><span class="sec-num">04</span> Data Sharing & Disclosure</h2>
+        <p>We do not sell, rent, or trade your personal data. We may share your data with:</p>
+        <ul>
+          <li><strong>Service Providers:</strong> Third-party vendors who assist in operating our platform (e.g., cloud hosting, email delivery, KYC verification providers) — bound by confidentiality agreements</li>
+          <li><strong>Regulatory Authorities:</strong> Government bodies, law enforcement, or financial regulators when legally required</li>
+          <li><strong>Professional Advisors:</strong> Lawyers, accountants, or auditors under strict confidentiality obligations</li>
+          <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or asset sale, your data may be transferred to the acquiring entity</li>
+        </ul>
+        <p>Any third parties receiving your data are required to maintain appropriate security standards and use your data only for the purposes we specify.</p>
+      </div>
+
+      <div class="legal-section" id="cookies">
+        <h2><span class="sec-num">05</span> Cookies & Tracking</h2>
+        <p>We use cookies and similar tracking technologies to enhance your experience. Types of cookies we use:</p>
+        <ul>
+          <li><strong>Essential Cookies:</strong> Required for the platform to function (authentication tokens, session management). Cannot be disabled.</li>
+          <li><strong>Preference Cookies:</strong> Remember your settings (dark mode preference, language). Disabled if you decline cookies.</li>
+          <li><strong>Analytics Cookies:</strong> Understand how you use the platform (page views, session data). Disabled if you decline cookies.</li>
+          <li><strong>Security Cookies:</strong> Detect and prevent fraudulent activity. Cannot be disabled.</li>
+        </ul>
+        <p>You can manage cookie preferences via your browser settings or through our cookie consent banner. Note that disabling non-essential cookies may affect platform functionality.</p>
+      </div>
+
+      <div class="legal-section" id="security-data">
+        <h2><span class="sec-num">06</span> Data Security</h2>
+        <p>We implement industry-standard security measures to protect your personal data, including:</p>
+        <ul>
+          <li>Transport Layer Security (TLS 1.3) for all data in transit</li>
+          <li>AES-256 encryption for sensitive data at rest</li>
+          <li>Bcrypt hashing for passwords (minimum 12 salt rounds)</li>
+          <li>Role-based access controls limiting data access to authorised personnel</li>
+          <li>Regular security audits and penetration testing</li>
+          <li>Multi-factor authentication for all administrative access</li>
+        </ul>
+        <p>While we implement robust security measures, no system is completely immune to breaches. In the event of a data breach affecting your rights, we will notify you and relevant authorities as required by law within 72 hours.</p>
+      </div>
+
+      <div class="legal-section" id="retention">
+        <h2><span class="sec-num">07</span> Data Retention</h2>
+        <p>We retain your personal data only as long as necessary for the purposes outlined in this policy or as required by law:</p>
+        <ul>
+          <li><strong>Account Data:</strong> Retained for the duration of your account plus 7 years after closure (AML regulatory requirement)</li>
+          <li><strong>Transaction Records:</strong> Retained for 7 years (financial regulatory requirement)</li>
+          <li><strong>KYC Documents:</strong> Retained for 5 years after account closure or last transaction</li>
+          <li><strong>Security Logs:</strong> Retained for 12 months</li>
+          <li><strong>Marketing Preferences:</strong> Until you withdraw consent</li>
+        </ul>
+        <p>After the applicable retention period, your data will be securely deleted or anonymised.</p>
+      </div>
+
+      <div class="legal-section" id="rights">
+        <h2><span class="sec-num">08</span> Your Privacy Rights</h2>
+        <p>Depending on your location, you may have the following rights regarding your personal data:</p>
+        <ul>
+          <li><strong>Right of Access:</strong> Request a copy of the personal data we hold about you</li>
+          <li><strong>Right to Rectification:</strong> Request correction of inaccurate or incomplete data</li>
+          <li><strong>Right to Erasure:</strong> Request deletion of your data (subject to legal retention requirements)</li>
+          <li><strong>Right to Restriction:</strong> Request that we limit how we use your data</li>
+          <li><strong>Right to Portability:</strong> Receive your data in a portable format</li>
+          <li><strong>Right to Object:</strong> Object to processing based on legitimate interests</li>
+          <li><strong>Right to Withdraw Consent:</strong> Where processing is based on consent, withdraw at any time</li>
+        </ul>
+        <p>To exercise any of these rights, contact us at <a href="mailto:privacy@cryptovault.io">privacy@cryptovault.io</a>. We will respond within 30 days. We may require identity verification before processing requests.</p>
+      </div>
+
+      <div class="legal-section" id="children">
+        <h2><span class="sec-num">09</span> Children's Privacy</h2>
+        <p>Our platform is not directed at or intended for use by individuals under 18 years of age. We do not knowingly collect personal data from children. If you believe we have inadvertently collected data from a minor, please contact us immediately at <a href="mailto:privacy@cryptovault.io">privacy@cryptovault.io</a> and we will delete the data promptly.</p>
+      </div>
+
+      <div class="legal-section" id="changes">
+        <h2><span class="sec-num">10</span> Policy Changes</h2>
+        <p>We may update this Privacy Policy from time to time. When we make significant changes, we will:</p>
+        <ul>
+          <li>Update the "Last updated" date at the top of this policy</li>
+          <li>Send an email notification to registered users</li>
+          <li>Display a prominent notice on our platform</li>
+        </ul>
+        <p>Your continued use of the platform after policy changes constitutes acceptance of the updated policy. We encourage you to review this policy periodically.</p>
+      </div>
+
+      <div class="legal-section" id="contact-privacy">
+        <h2><span class="sec-num">11</span> Contact & Complaints</h2>
+        <p>For privacy-related questions, requests, or complaints:</p>
+        <ul>
+          <li><strong>Privacy Email:</strong> <a href="mailto:privacy@cryptovault.io">privacy@cryptovault.io</a></li>
+          <li><strong>General Support:</strong> <a href="contact.html">Contact Form</a></li>
+          <li><strong>Response Time:</strong> Within 30 days for formal requests</li>
+        </ul>
+        <p>If you are not satisfied with our response, you have the right to lodge a complaint with your local data protection authority (e.g., the ICO in the UK, CNIL in France, or relevant authority in your jurisdiction).</p>
+        <div class="info-box">This Privacy Policy was last reviewed on 1 January 2025. For a record of previous versions, please contact us at privacy@cryptovault.io.</div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2025 CryptoVault. All rights reserved.</span>
+      <div class="footer-links"><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="risk.html">Risk Disclaimer</a><a href="contact.html">Contact</a></div>
+    </div>
+  </div>
+</footer>
+<script>
+const html=document.documentElement;
+function applyTheme(t){html.setAttribute('data-theme',t);localStorage.setItem('cv_theme',t);document.getElementById('sun-icon').style.display=t==='dark'?'block':'none';document.getElementById('moon-icon').style.display=t==='dark'?'none':'block'}
+function toggleTheme(){applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark')}
+applyTheme(localStorage.getItem('cv_theme')||'light');
+function toggleMenu(){const h=document.getElementById('hamburger'),m=document.getElementById('mobile-menu');h.classList.toggle('open');m.classList.toggle('open');document.body.style.overflow=m.classList.contains('open')?'hidden':''}
+const sections=document.querySelectorAll('.legal-section');
+const tocLinks=document.querySelectorAll('.toc-list a');
+window.addEventListener('scroll',()=>{let current='';sections.forEach(s=>{if(window.scrollY>=s.offsetTop-120)current=s.id});tocLinks.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+current)})});
+</script>
+</body>
+</html>
