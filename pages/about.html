@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
@@ -53,77 +53,37 @@ a{text-decoration:none;color:inherit}
 @media(max-width:768px){.section{padding:64px 0}}
 
 /* NAV */
-#navbar{position:fixed;top:0;left:0;right:0;z-index:9000;background:#0e0d0b;border-bottom:1px solid rgba(255,255,255,0.08);box-shadow:0 2px 16px rgba(0,0,0,0.3)}
-.nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:66px;max-width:1280px;margin:0 auto}
-@media(max-width:640px){.nav-wrap{padding:0 18px}}
-.nav-logo a{display:flex;align-items:center;height:66px;text-decoration:none;flex-shrink:0}
-  /* Brand (Logo + Name) */
-.brand-wrap{
-  display:flex;
-  align-items:center;
-  gap:14px;
-}
-
-.brand-logo{
-  height:100%;
-  max-height:66px;
-  width:auto;
-  object-fit:contain;
-  display:block;
-}
-
-.brand-name{
-  font-family:'Playfair Display', serif;
-  font-size:22px;
-  font-weight:600;
-  letter-spacing:1px;
-  background:linear-gradient(135deg,#f5f2ec,#c9a84c);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  display:inline-block;
-}
-
-/* subtle gold accent */
-.brand-name span{
-  background:linear-gradient(135deg,#c9a84c,#e0be6a);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-/* hover effect */
-.brand-wrap:hover .brand-name{
-  color:#e0be6a;
-}
-.nav-links-c{display:flex;align-items:center;gap:4px}
-.nav-links-c a{font-size:14px;font-weight:400;color:rgba(255,255,255,0.62);padding:8px 14px;border-radius:6px;text-decoration:none;transition:color .2s}
-.nav-links-c a:hover{color:#fff}
-.nav-cta-r{display:flex;align-items:center;gap:10px}
-.btn-ng{background:transparent;color:rgba(255,255,255,0.82);border:1.5px solid rgba(255,255,255,0.22);padding:9px 20px;border-radius:10px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center}
-.btn-ng:hover{border-color:rgba(255,255,255,0.55);color:#fff}
-.btn-go{background:linear-gradient(135deg,#b8860b,#d4a017);color:#fff;border:none;padding:9px 20px;border-radius:10px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
-.btn-go:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(184,134,11,0.38)}
-.nav-hbg{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
-.nav-hbg span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
-.nav-hbg.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.nav-hbg.open span:nth-child(2){opacity:0;transform:scaleX(0)}
-.nav-hbg.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-@media(max-width:900px){.nav-links-c{display:none}.nav-cta-r .btn-ng,.nav-cta-r .btn-go{display:none}.nav-hbg{display:flex}}
-.mob-ov{position:fixed;inset:0;background:rgba(0,0,0,0.52);z-index:8998;opacity:0;pointer-events:none;transition:opacity .3s}
-.mob-ov.open{opacity:1;pointer-events:all}
-.mob-drw{position:fixed;top:0;right:0;bottom:0;width:288px;background:#1a1814;z-index:8999;display:flex;flex-direction:column;padding:22px 18px 32px;box-shadow:-4px 0 40px rgba(0,0,0,0.45);transform:translateX(100%);transition:transform .32s cubic-bezier(.4,0,.2,1)}
-.mob-drw.open{transform:translateX(0)}
-.mob-drw-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
-.mob-drw-hd img{height:40px;width:auto}
-.mob-cls{background:rgba(255,255,255,0.08);border:none;border-radius:8px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:rgba(255,255,255,0.7);transition:all .2s}
-.mob-cls:hover{background:rgba(255,255,255,0.16);color:#fff}
-.mob-lks{display:flex;flex-direction:column;flex:1}
-.mob-lks a{display:block;padding:13px 10px;font-size:16px;color:rgba(255,255,255,0.72);border-bottom:1px solid rgba(255,255,255,0.07);text-decoration:none;transition:color .2s}
-.mob-lks a:hover{color:#fff}
-.mob-acts{display:flex;flex-direction:column;gap:9px;margin-top:22px}
-.mob-acts .btn-ng{display:block;text-align:center;padding:12px}
-.mob-acts .btn-go{display:block;text-align:center;padding:12px;justify-content:center}
-.mob-theme{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:12px 14px;font-family:'Outfit',sans-serif;font-size:14px;color:rgba(255,255,255,0.65);cursor:pointer;display:flex;align-items:center;gap:10px;transition:all .2s;width:100%;margin-top:2px}
-.mob-theme:hover{background:rgba(255,255,255,0.1);color:#fff}
+#navbar{position:fixed;top:0;left:0;right:0;z-index:999;padding:18px 0;transition:all .35s}
+#navbar.scrolled{background:var(--nav-bg);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:12px 0;box-shadow:var(--shadow-sm)}
+.nav-inner{display:flex;align-items:center}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-icon{width:34px;height:34px;background:linear-gradient(135deg,var(--gold),var(--gold-2));border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff}
+.logo-name{font-family:'Playfair Display',serif;font-size:19px;font-weight:500;color:var(--ink)}
+.logo-name span{color:var(--gold)}
+.nav-center{flex:1;display:flex;justify-content:center}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{font-size:14px;font-weight:400;color:var(--muted);padding:8px 14px;border-radius:var(--r);transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.theme-btn{width:38px;height:38px;border-radius:var(--r2);background:var(--bg-2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;color:var(--muted)}
+.theme-btn:hover{background:var(--bg-3);color:var(--gold);border-color:var(--gold-border)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Outfit',sans-serif;font-weight:500;cursor:pointer;transition:all .22s;border-radius:var(--r2);border:none;white-space:nowrap}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#fff;padding:9px 20px;font-size:13px;font-weight:600;box-shadow:var(--shadow-gold)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(184,134,11,.4)}
+.btn-gold-lg{padding:15px 36px;font-size:15px;border-radius:var(--r3)}
+.btn-outline{background:transparent;color:var(--ink);border:1.5px solid var(--border-2);padding:9px 20px;font-size:13px}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.btn-outline-lg{padding:15px 36px;font-size:15px;border-radius:var(--r3)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;margin-left:8px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:65px;left:0;right:0;bottom:0;background:var(--bg);z-index:998;padding:24px 24px 40px;flex-direction:column;border-top:1px solid var(--border);transform:translateX(100%);transition:transform .3s ease}
+.mobile-menu.open{transform:translateX(0)}
+.mobile-menu a{display:block;padding:14px 0;font-size:17px;color:var(--ink);border-bottom:1px solid var(--border)}
+.mob-actions{margin-top:28px;display:flex;flex-direction:column;gap:12px}
+@media(max-width:900px){.nav-center{display:none}.hamburger{display:flex}.mobile-menu{display:flex}.nav-right .btn-outline,.nav-right .btn-gold{display:none}}
 
 /* PAGE HERO */
 .page-hero{padding:160px 0 80px;position:relative;overflow:hidden;background:linear-gradient(160deg,var(--bg) 0%,var(--bg-2) 100%);border-bottom:1px solid var(--border)}
