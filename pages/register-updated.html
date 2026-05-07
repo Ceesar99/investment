@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta name="theme-color" content="#b8860b">
+<title>Create Account — CryptoVault</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#fafaf8; --bg-2:#f4f3ef; --bg-3:#eeecea;
+  --card:#ffffff; --border:#e8e5df; --border-2:#d4cfc7;
+  --ink:#1a1814; --ink-2:#2d2a25; --ink-3:#4a453e;
+  --muted:#7a7468; --muted-2:#a09890;
+  --gold:#b8860b; --gold-2:#d4a017;
+  --gold-bg:rgba(184,134,11,0.08); --gold-border:rgba(184,134,11,0.25);
+  --green:#16a34a; --green-bg:rgba(22,163,74,0.10);
+  --red:#dc2626; --red-bg:rgba(220,38,38,0.07);
+  --shadow-sm:0 1px 3px rgba(26,24,20,.06),0 1px 2px rgba(26,24,20,.04);
+  --shadow-md:0 4px 16px rgba(26,24,20,.08);
+  --shadow-lg:0 12px 40px rgba(26,24,20,.12);
+  --shadow-gold:0 8px 32px rgba(184,134,11,.25);
+  --r:6px; --r2:12px; --r3:20px;
+}
+[data-theme="dark"] {
+  --bg:#0e0d0b; --bg-2:#141310; --bg-3:#1c1a16;
+  --card:#1a1814; --border:rgba(255,255,255,.08); --border-2:rgba(255,255,255,.14);
+  --ink:#f5f2ec; --ink-2:#e0dbd2; --ink-3:#b8b0a4;
+  --muted:#7a7468; --muted-2:#4a453e;
+  --gold:#c9a84c; --gold-2:#e0be6a;
+  --gold-bg:rgba(201,168,76,.08); --gold-border:rgba(201,168,76,.25);
+  --green:#22c55e; --green-bg:rgba(34,197,94,.10);
+  --red:#ef4444; --red-bg:rgba(239,68,68,.07);
+  --shadow-sm:0 1px 3px rgba(0,0,0,.3);
+  --shadow-md:0 4px 16px rgba(0,0,0,.4);
+  --shadow-lg:0 12px 40px rgba(0,0,0,.5);
+  --shadow-gold:0 8px 32px rgba(201,168,76,.2);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{height:100%}
+body{padding-top:66px;font-family:'Outfit',sans-serif;background:var(--bg-2);color:var(--ink);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;transition:background .35s,color .35s}
+a{text-decoration:none;color:inherit}
+
+/* TOP BAR */
+.top-bar{display:none!important;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:var(--card);border-bottom:1px solid var(--border);box-shadow:var(--shadow-sm);flex-shrink:0}
+@media(max-width:480px){.top-bar{display:none!important;padding:16px 20px}}
+.logo{display:flex;align-items:center;align-items:center;gap:10px}
+
+@media(max-width:600px){}
+.btn-top-outline{background:transparent;color:var(--ink);border:1.5px solid var(--border-2);padding:9px 18px;border-radius:var(--r2);font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.btn-top-outline:hover{border-color:var(--gold);color:var(--gold)}
+
+/* MAIN */
+.auth-main{flex:1;display:flex;align-items:flex-start;justify-content:center;padding:48px 20px 64px}
+@media(max-width:540px){.auth-main{padding:32px 16px 48px}}
+
+/* CARD */
+.auth-card{width:100%;max-width:520px;background:var(--card);border:1px solid var(--border);border-radius:var(--r3);padding:48px;box-shadow:var(--shadow-lg)}
+@media(max-width:560px){.auth-card{padding:30px 22px;border-radius:var(--r2)}}
+.card-accent{width:40px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-2));border-radius:2px;margin-bottom:28px}
+
+/* STEPS */
+.steps-bar{display:flex;align-items:center;margin-bottom:8px}
+.step-dot{width:30px;height:30px;border-radius:50%;border:2px solid var(--border-2);background:var(--card);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--muted-2);transition:all .3s;flex-shrink:0}
+.step-dot.active{border-color:var(--gold);background:var(--gold);color:#fff}
+.step-dot.done{border-color:var(--green);background:var(--green);color:#fff;font-size:11px}
+.step-line{flex:1;height:2px;background:var(--border);transition:background .3s;margin:0 4px}
+.step-line.done{background:var(--green)}
+.steps-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--muted-2);margin-bottom:28px;padding:0 2px}
+.steps-labels span.active{color:var(--gold);font-weight:500}
+
+/* PANELS */
+.step-panel{display:none}.step-panel.active{display:block}
+.step-head{margin-bottom:22px}
+.step-head h2{font-family:'Playfair Display',serif;font-size:28px;font-weight:400;color:var(--ink);margin-bottom:6px}
+.step-head p{font-size:14px;color:var(--muted)}
+.step-head p a{color:var(--gold);font-weight:500}
+
+/* FORM */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:460px){.form-grid{grid-template-columns:1fr}}
+.form-group{margin-bottom:16px}
+.form-label{display:block;font-size:13px;font-weight:500;color:var(--ink-2);margin-bottom:7px}
+.input-wrap{position:relative}
+.form-input{width:100%;padding:12px 16px;border:1.5px solid var(--border-2);border-radius:var(--r2);font-family:'Outfit',sans-serif;font-size:15px;color:var(--ink);background:var(--bg);outline:none;transition:border-color .2s,background .2s;appearance:none}
+.form-input:focus{border-color:var(--gold);background:var(--card)}
+.form-input::placeholder{color:var(--muted-2)}
+.input-eye{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--muted);padding:4px;display:flex;align-items:center;transition:color .2s}
+.input-eye:hover{color:var(--ink)}
+
+/* Strength */
+.strength-bar{height:4px;border-radius:2px;background:var(--border);margin-top:8px;overflow:hidden}
+.strength-fill{height:100%;border-radius:2px;width:0%;transition:width .3s,background .3s}
+.strength-label{font-size:11px;color:var(--muted);margin-top:5px}
+
+/* Checkbox */
+.check-label{display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:13px;color:var(--muted);line-height:1.55;margin-bottom:14px}
+.check-label input{accent-color:var(--gold);width:15px;height:15px;margin-top:2px;flex-shrink:0;cursor:pointer}
+.check-label a{color:var(--gold)}
+
+/* PLAN OPTIONS */
+.plan-options{display:flex;flex-direction:column;gap:10px;margin-bottom:22px}
+.plan-opt{border:2px solid var(--border);border-radius:var(--r2);padding:14px 18px;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.plan-opt:hover{border-color:var(--gold-border)}
+.plan-opt.selected{border-color:var(--gold);background:var(--gold-bg)}
+.plan-opt-name{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.plan-opt-detail{font-size:12px;color:var(--muted)}
+.plan-opt-roi{font-size:13px;font-weight:700;color:var(--green);white-space:nowrap;flex-shrink:0}
+
+/* ALERT */
+.alert{border-radius:var(--r2);padding:12px 16px;font-size:13px;margin-bottom:16px;display:none;line-height:1.5}
+.alert-error{background:var(--red-bg);border:1px solid rgba(220,38,38,.2);color:var(--red)}
+.alert.show{display:block}
+
+/* BUTTONS */
+.btn-submit{width:100%;padding:14px;border-radius:var(--r2);background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#fff;font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;border:none;cursor:pointer;transition:all .25s}
+.btn-submit:hover{transform:translateY(-1px);box-shadow:var(--shadow-gold)}
+.btn-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.btn-back{width:100%;padding:13px;border-radius:var(--r2);background:transparent;color:var(--ink);font-family:'Outfit',sans-serif;font-size:15px;font-weight:400;border:1.5px solid var(--border-2);cursor:pointer;transition:all .2s;margin-top:8px}
+.btn-back:hover{border-color:var(--gold);color:var(--gold)}
+
+/* SUCCESS */
+.success-state{text-align:center;padding:20px 0}
+.success-icon{font-size:52px;margin-bottom:18px}
+.success-state h3{font-family:'Playfair Display',serif;font-size:30px;font-weight:400;color:var(--ink);margin-bottom:10px}
+.success-state p{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:24px}
+.btn-goto{display:block;text-align:center;padding:14px;border-radius:var(--r2);background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#fff;font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;transition:all .25s}
+.btn-goto:hover{transform:translateY(-1px);box-shadow:var(--shadow-gold)}
+
+/* TRUST */
+.trust-strip{display:flex;align-items:center;justify-content:center;gap:24px;padding:18px 40px;background:var(--card);border-top:1px solid var(--border);flex-wrap:wrap;flex-shrink:0}
+.trust-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted-2)}
+.trust-item span{font-size:14px}
+</style>
+</head>
+<body>
+<style>
+
+#navbar{position:fixed;top:0;left:0;right:0;z-index:9000;background:#0e0d0b;border-bottom:1px solid rgba(255,255,255,0.08);box-shadow:0 2px 16px rgba(0,0,0,0.3)}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:66px;max-width:1280px;margin:0 auto}
+@media(max-width:640px){.nav-wrap{padding:0 18px}}
+.nav-logo a{
+  display:flex;
+  align-items:center;
+  height:66px;
+  text-decoration:none;
+  flex-shrink:0;
+}
+.nav-links-c{display:flex;align-items:center;gap:4px}
+.nav-links-c a{font-size:14px;font-weight:400;color:rgba(255,255,255,0.62);padding:8px 14px;border-radius:6px;text-decoration:none;transition:color .2s}
+.nav-links-c a:hover{color:#fff}
+.nav-cta-r{display:flex;align-items:center;gap:10px}
+.btn-ng{background:transparent;color:rgba(255,255,255,0.82);border:1.5px solid rgba(255,255,255,0.22);padding:9px 20px;border-radius:10px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center}
+.btn-ng:hover{border-color:rgba(255,255,255,0.55);color:#fff}
+.btn-go{background:linear-gradient(135deg,#b8860b,#d4a017);color:#fff;border:none;padding:9px 20px;border-radius:10px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.btn-go:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(184,134,11,0.38)}
+.nav-hbg{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.nav-hbg span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+.nav-hbg.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hbg.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-hbg.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:900px){.nav-links-c{display:none}.nav-cta-r .btn-ng,.nav-cta-r .btn-go{display:none}.nav-hbg{display:flex}}
+.mob-ov{position:fixed;inset:0;background:rgba(0,0,0,0.52);z-index:8998;opacity:0;pointer-events:none;transition:opacity .3s}
+.mob-ov.open{opacity:1;pointer-events:all}
+.mob-drw{position:fixed;top:0;right:0;bottom:0;width:288px;background:#0e0d0b;z-index:8999;display:flex;flex-direction:column;padding:22px 18px 32px;box-shadow:-4px 0 40px rgba(0,0,0,0.45);transform:translateX(100%);transition:transform .32s cubic-bezier(.4,0,.2,1)}
+.mob-drw.open{transform:translateX(0)}
+.mob-drw-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+.mob-drw-hd img{height:40px;width:auto}
+.mob-cls{background:rgba(255,255,255,0.08);border:none;border-radius:8px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:rgba(255,255,255,0.7);transition:all .2s}
+.mob-cls:hover{background:rgba(255,255,255,0.16);color:#fff}
+.mob-lks{display:flex;flex-direction:column;flex:1}
+.mob-lks a{display:block;padding:13px 10px;font-size:16px;color:rgba(255,255,255,0.72);border-bottom:1px solid rgba(255,255,255,0.07);text-decoration:none;transition:color .2s}
+.mob-lks a:hover{color:#fff}
+.mob-acts{display:flex;flex-direction:column;gap:9px;margin-top:22px}
+.mob-acts .btn-ng{display:block;text-align:center;padding:12px}
+.mob-acts .btn-go{display:block;text-align:center;padding:12px;justify-content:center}
+.mob-theme{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:12px 14px;font-family:'Outfit',sans-serif;font-size:14px;color:rgba(255,255,255,0.65);cursor:pointer;display:flex;align-items:center;gap:10px;transition:all .2s;width:100%;margin-top:2px}
+.mob-theme:hover{background:rgba(255,255,255,0.1);color:#fff}
+
+</style>
+<nav id="navbar">
+  <div class="nav-wrap">
+    <div class="nav-logo"><a href="../index.html"><img src="../logo-nav.png" alt="CryptoVault" style="height:42px;width:auto;display:block"></a></div>
+    <div class="nav-cta-r">
+      <a href="login.html" class="btn-ng">Sign In</a>
+      <button class="nav-hbg" id="navHbg" onclick="toggleDrw()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="mob-ov" id="mobOv" onclick="closeDrw()"></div>
+<div class="mob-drw" id="mobDrw">
+  <div class="mob-drw-hd">
+    <a href="../index.html"><img src="../logo-nav.png" alt="CryptoVault" style="height:42px;width:auto;display:block"></a>
+    <button class="mob-cls" onclick="closeDrw()">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="mob-lks">
+    <a href="../index.html" onclick="closeDrw()">Home</a>
+    <a href="../index.html#plans" onclick="closeDrw()">Plans</a>
+    <a href="about.html" onclick="closeDrw()">About</a>
+    <a href="contact.html" onclick="closeDrw()">Contact</a>
+    <a href="login.html" onclick="closeDrw()">Sign In</a>
+  </div>
+  <div class="mob-acts">
+    <button class="mob-theme" onclick="toggleTheme()">
+      <span id="mobThemeIco">🌙</span>
+      <span id="mobThemeLbl">Switch to Dark Mode</span>
+    </button>
+  </div>
+</div>
+<script>
+function toggleDrw(){const h=document.getElementById('navHbg'),d=document.getElementById('mobDrw'),o=document.getElementById('mobOv');const op=!d.classList.contains('open');h.classList.toggle('open',op);d.classList.toggle('open',op);o.classList.toggle('open',op);document.body.style.overflow=op?'hidden':'';}
+function closeDrw(){document.getElementById('navHbg').classList.remove('open');document.getElementById('mobDrw').classList.remove('open');document.getElementById('mobOv').classList.remove('open');document.body.style.overflow='';}
+const _h=document.documentElement;
+function applyTheme(t){_h.setAttribute('data-theme',t);localStorage.setItem('cv_theme',t);const ic=document.getElementById('mobThemeIco'),lb=document.getElementById('mobThemeLbl');if(ic)ic.textContent=t==='dark'?'☀️':'🌙';if(lb)lb.textContent=t==='dark'?'Switch to Light Mode':'Switch to Dark Mode';}
+function toggleTheme(){applyTheme(_h.getAttribute('data-theme')==='dark'?'light':'dark');}
+applyTheme(localStorage.getItem('cv_theme')||'light');
+</script>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <a href="../index.html" class="logo">
+    <img src="../logo-nav.png" alt="CryptoVault" style="height:40px;width:auto;display:block">
+  </a>
+  <div class="top-bar-right">
+    <a href="login.html" class="btn-top-outline">Sign In</a>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="auth-main">
+  <div class="auth-card">
+
+    <div class="card-accent"></div>
+
+    <!-- STEPS -->
+    <div class="steps-bar" id="stepsBar">
+      <div class="step-dot active" id="dot1">1</div>
+      <div class="step-line" id="line1"></div>
+      <div class="step-dot" id="dot2">2</div>
+      <div class="step-line" id="line2"></div>
+      <div class="step-dot" id="dot3">3</div>
+    </div>
+    <div class="steps-labels">
+      <span id="label1" class="active">Account</span>
+      <span id="label2">Security</span>
+      <span id="label3">Plan</span>
+    </div>
+
+    <div class="alert alert-error" id="regError"></div>
+
+    <!-- STEP 1: Account Info -->
+    <div class="step-panel active" id="step1">
+      <div class="step-head">
+        <h2>Create your account</h2>
+        <p>Already have one? <a href="login.html">Sign in →</a></p>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">First name</label>
+          <input type="text" id="firstName" class="form-input" placeholder="John" autocomplete="given-name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last name</label>
+          <input type="text" id="lastName" class="form-input" placeholder="Doe" autocomplete="family-name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email address</label>
+        <input type="email" id="regEmail" class="form-input" placeholder="you@example.com" autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Phone number</label>
+        <input type="tel" id="regPhone" class="form-input" placeholder="+234 800 000 0000" autocomplete="tel">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Country</label>
+        <select id="regCountry" class="form-input" style="cursor:pointer">
+          <option value="">Select your country</option>
+          <option>Nigeria</option><option>Ghana</option><option>Kenya</option>
+          <option>South Africa</option><option>United Kingdom</option>
+          <option>United States</option><option>Canada</option><option>Other</option>
+        </select>
+      </div>
+      <button class="btn-submit" onclick="goStep2()">Continue →</button>
+      <p style="text-align:center;margin-top:14px;font-size:12px;color:var(--muted-2)">
+        By continuing you agree to our <a href="terms.html" style="color:var(--gold)">Terms</a> &amp; <a href="privacy.html" style="color:var(--gold)">Privacy Policy</a>
+      </p>
+    </div>
+
+    <!-- STEP 2: Security -->
+    <div class="step-panel" id="step2">
+      <div class="step-head">
+        <h2>Secure your account</h2>
+        <p>Choose a strong password and enable 2FA.</p>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <div class="input-wrap">
+          <input type="password" id="regPw" class="form-input" placeholder="Minimum 8 characters" oninput="checkStrength(this.value)" autocomplete="new-password">
+          <button type="button" class="input-eye" onclick="togglePw('regPw',this)">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+        <div class="strength-bar"><div class="strength-fill" id="strengthFill"></div></div>
+        <div class="strength-label" id="strengthLabel">Use 8+ characters, numbers &amp; symbols</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Confirm password</label>
+        <div class="input-wrap">
+          <input type="password" id="regPwConfirm" class="form-input" placeholder="Repeat your password" autocomplete="new-password">
+          <button type="button" class="input-eye" onclick="togglePw('regPwConfirm',this)">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+      </div>
+      <label class="check-label">
+        <input type="checkbox" id="enable2fa" checked>
+        <span>Enable Two-Factor Authentication (recommended) — you'll configure this after account creation</span>
+      </label>
+      <label class="check-label">
+        <input type="checkbox" id="agreeTerms">
+        <span>I agree to the <a href="terms.html">Terms of Service</a>, <a href="privacy.html">Privacy Policy</a>, and <a href="risk.html">Risk Disclaimer</a></span>
+      </label>
+      <button class="btn-submit" onclick="goStep3()">Continue →</button>
+      <button class="btn-back" onclick="goToStep(1)">← Back</button>
+    </div>
+
+    <!-- STEP 3: Plan Selection -->
+    <div class="step-panel" id="step3">
+      <div class="step-head">
+        <h2>Choose your plan</h2>
+        <p>You can change plans anytime from your dashboard.</p>
+      </div>
+      <div class="plan-options">
+        <div class="plan-opt" onclick="selectPlan(this,'balanced')">
+          <div>
+            <div class="plan-opt-name">🌿 Balanced</div>
+            <div class="plan-opt-detail">6 months · From $200 · Low risk</div>
+          </div>
+          <div class="plan-opt-roi">5–12%</div>
+        </div>
+        <div class="plan-opt selected" onclick="selectPlan(this,'accelerator')">
+          <div>
+            <div class="plan-opt-name">🚀 Accelerator</div>
+            <div class="plan-opt-detail">1 year · From $500 · Medium risk</div>
+          </div>
+          <div class="plan-opt-roi">15–28%</div>
+        </div>
+        <div class="plan-opt" onclick="selectPlan(this,'apex')">
+          <div>
+            <div class="plan-opt-name">⚡ Apex</div>
+            <div class="plan-opt-detail">2 years · From $2,000 · High risk</div>
+          </div>
+          <div class="plan-opt-roi">30–55%</div>
+        </div>
+      </div>
+      <button class="btn-submit" id="createBtn" onclick="createAccount()">Create Account →</button>
+      <button class="btn-back" onclick="goToStep(2)">← Back</button>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="step-panel" id="stepSuccess">
+      <div class="success-state">
+        <div class="success-icon">🎉</div>
+        <h3>Account created!</h3>
+        <p>Welcome to CryptoVault. Check your email to verify your address, then make your first deposit to start earning.</p>
+        <a href="login.html" class="btn-goto">Go to Sign In →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item"><span>🔒</span> SSL Encrypted</div>
+  <div class="trust-item"><span>🛡️</span> 2FA Protected</div>
+  <div class="trust-item"><span>🏦</span> Cold Storage</div>
+  <div class="trust-item"><span>⚡</span> 99.9% Uptime</div>
+</div>
+
+<script>
+/* THEME */
+const html = document.documentElement;
+function applyTheme(t) {
+  html.setAttribute('data-theme', t);
+  localStorage.setItem('cv_theme', t);
+  const btn = document.getElementById('themeIconTopbar');
+  if (btn) btn.textContent = t === 'dark' ? '☀️' : '🌙';
+}
+function toggleTheme() { applyTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'); }
+applyTheme(localStorage.getItem('cv_theme') || 'light');
+
+/* STEPS */
+let currentStep = 1;
+let selectedPlan = 'accelerator';
+
+function goToStep(n) {
+  document.getElementById('step' + currentStep).classList.remove('active');
+  if (n <= 3) document.getElementById('step' + n).classList.add('active');
+  for (let i = 1; i <= 3; i++) {
+    const dot = document.getElementById('dot' + i);
+    const lbl = document.getElementById('label' + i);
+    dot.classList.remove('active', 'done');
+    lbl.classList.remove('active');
+    if (i < n) { dot.classList.add('done'); dot.textContent = '✓'; }
+    else if (i === n) { dot.classList.add('active'); dot.textContent = i; lbl.classList.add('active'); }
+    else { dot.textContent = i; }
+  }
+  for (let i = 1; i <= 2; i++) {
+    document.getElementById('line' + i).classList.toggle('done', i < n);
+  }
+  currentStep = n;
+  document.getElementById('regError').classList.remove('show');
+}
+
+function showErr(msg) {
+  const el = document.getElementById('regError');
+  el.textContent = msg; el.classList.add('show');
+}
+
+function goStep2() {
+  const fn = document.getElementById('firstName').value.trim();
+  const ln = document.getElementById('lastName').value.trim();
+  const em = document.getElementById('regEmail').value.trim();
+  const co = document.getElementById('regCountry').value;
+  if (!fn || !ln) return showErr('Please enter your full name.');
+  if (!em || !em.includes('@')) return showErr('Please enter a valid email address.');
+  if (!co) return showErr('Please select your country.');
+  goToStep(2);
+}
+
+function goStep3() {
+  const pw  = document.getElementById('regPw').value;
+  const pwc = document.getElementById('regPwConfirm').value;
+  const agreed = document.getElementById('agreeTerms').checked;
+  if (pw.length < 8) return showErr('Password must be at least 8 characters.');
+  if (pw !== pwc) return showErr('Passwords do not match.');
+  if (!agreed) return showErr('Please agree to the Terms of Service to continue.');
+  goToStep(3);
+}
+
+function selectPlan(el, plan) {
+  document.querySelectorAll('.plan-opt').forEach(p => p.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedPlan = plan;
+}
+
+function createAccount() {
+  const btn = document.getElementById('createBtn');
+  btn.disabled = true; btn.textContent = 'Creating account…';
+  // TODO: POST /api/auth/register
+  setTimeout(() => {
+    document.getElementById('step3').classList.remove('active');
+    document.getElementById('stepSuccess').classList.add('active');
+    for (let i = 1; i <= 3; i++) {
+      const d = document.getElementById('dot' + i);
+      d.classList.remove('active'); d.classList.add('done'); d.textContent = '✓';
+    }
+    document.getElementById('line1').classList.add('done');
+    document.getElementById('line2').classList.add('done');
+  }, 1500);
+}
+
+function togglePw(id, btn) {
+  const inp = document.getElementById(id);
+  inp.type = inp.type === 'text' ? 'password' : 'text';
+  btn.innerHTML = inp.type === 'text'
+    ? '<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>'
+    : '<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+}
+
+function checkStrength(val) {
+  let score = 0;
+  if (val.length >= 8) score++;
+  if (/[A-Z]/.test(val)) score++;
+  if (/[0-9]/.test(val)) score++;
+  if (/[^A-Za-z0-9]/.test(val)) score++;
+  const fill = document.getElementById('strengthFill');
+  const label = document.getElementById('strengthLabel');
+  const colors = ['#ef4444','#f97316','#eab308','#16a34a'];
+  const labels = ['Weak','Fair','Good','Strong'];
+  fill.style.width = score > 0 ? (score / 4 * 100) + '%' : '0%';
+  fill.style.background = score > 0 ? colors[score - 1] : 'transparent';
+  label.textContent = score > 0 ? labels[score - 1] + ' password' : 'Use 8+ characters, numbers & symbols';
+  label.style.color = score > 0 ? colors[score - 1] : 'var(--muted)';
+}
+</script>
+</body>
+</html>
