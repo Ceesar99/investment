@@ -46,14 +46,46 @@ html{height:100%}
 body{padding-top:66px;font-family:'Outfit',sans-serif;background:var(--bg-2);color:var(--ink);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;transition:background .35s,color .35s}
 a{text-decoration:none;color:inherit}
 
-/* TOP BAR */
-.top-bar{display:none!important;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:var(--card);border-bottom:1px solid var(--border);box-shadow:var(--shadow-sm);flex-shrink:0}
-@media(max-width:480px){.top-bar{display:none!important;padding:16px 20px}}
-.logo{display:flex;align-items:center;align-items:center;gap:10px}
-
-@media(max-width:600px){}
-.btn-top-outline{background:transparent;color:var(--ink);border:1.5px solid var(--border-2);padding:9px 18px;border-radius:var(--r2);font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
-.btn-top-outline:hover{border-color:var(--gold);color:var(--gold)}
+/* ── NAVBAR (matching login file exactly) ── */
+#navbar{position:fixed;top:0;left:0;right:0;z-index:9000;background:#0e0d0b;border-bottom:1px solid rgba(255,255,255,0.08);box-shadow:0 2px 16px rgba(0,0,0,0.3)}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:66px;max-width:1280px;margin:0 auto}
+@media(max-width:640px){.nav-wrap{padding:0 18px}}
+.nav-logo a{display:flex;align-items:center;height:66px;text-decoration:none;flex-shrink:0}
+.brand-wrap{display:flex;align-items:center;gap:14px;}
+.brand-logo{height:100%;max-height:66px;width:auto;object-fit:contain;display:block;}
+.brand-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;letter-spacing:1px;background:linear-gradient(135deg,#f5f2ec,#c9a84c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:inline-block;}
+.brand-name span{background:linear-gradient(135deg,#c9a84c,#e0be6a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.brand-wrap:hover .brand-name{color:#e0be6a;}
+.nav-links-c{display:flex;align-items:center;gap:4px}
+.nav-links-c a{font-size:14px;font-weight:400;color:rgba(255,255,255,0.62);padding:8px 14px;border-radius:6px;text-decoration:none;transition:color .2s}
+.nav-links-c a:hover{color:#fff}
+.nav-cta-r{display:flex;align-items:center;gap:10px}
+.btn-ng{background:transparent;color:rgba(255,255,255,0.82);border:1.5px solid rgba(255,255,255,0.22);padding:9px 20px;border-radius:10px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center}
+.btn-ng:hover{border-color:rgba(255,255,255,0.55);color:#fff}
+.btn-go{background:linear-gradient(135deg,#b8860b,#d4a017);color:#fff;border:none;padding:9px 20px;border-radius:10px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.btn-go:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(184,134,11,0.38)}
+.nav-hbg{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.nav-hbg span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+.nav-hbg.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hbg.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-hbg.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:900px){.nav-links-c{display:none}.nav-cta-r .btn-ng,.nav-cta-r .btn-go{display:none}.nav-hbg{display:flex}}
+.mob-ov{position:fixed;inset:0;background:rgba(0,0,0,0.52);z-index:8998;opacity:0;pointer-events:none;transition:opacity .3s}
+.mob-ov.open{opacity:1;pointer-events:all}
+.mob-drw{position:fixed;top:0;right:0;bottom:0;width:288px;background:#1a1814;z-index:8999;display:flex;flex-direction:column;padding:22px 18px 32px;box-shadow:-4px 0 40px rgba(0,0,0,0.45);transform:translateX(100%);transition:transform .32s cubic-bezier(.4,0,.2,1)}
+.mob-drw.open{transform:translateX(0)}
+.mob-drw-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+.mob-drw-hd img{height:40px;width:auto}
+.mob-cls{background:rgba(255,255,255,0.08);border:none;border-radius:8px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:rgba(255,255,255,0.7);transition:all .2s}
+.mob-cls:hover{background:rgba(255,255,255,0.16);color:#fff}
+.mob-lks{display:flex;flex-direction:column;flex:1}
+.mob-lks a{display:block;padding:13px 10px;font-size:16px;color:rgba(255,255,255,0.72);border-bottom:1px solid rgba(255,255,255,0.07);text-decoration:none;transition:color .2s}
+.mob-lks a:hover{color:#fff}
+.mob-acts{display:flex;flex-direction:column;gap:9px;margin-top:22px}
+.mob-acts .btn-ng{display:block;text-align:center;padding:12px}
+.mob-acts .btn-go{display:block;text-align:center;padding:12px;justify-content:center}
+.mob-theme{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:12px 14px;font-family:'Outfit',sans-serif;font-size:14px;color:rgba(255,255,255,0.65);cursor:pointer;display:flex;align-items:center;gap:10px;transition:all .2s;width:100%;margin-top:2px}
+.mob-theme:hover{background:rgba(255,255,255,0.1);color:#fff}
 
 /* MAIN */
 .auth-main{flex:1;display:flex;align-items:flex-start;justify-content:center;padding:48px 20px 64px}
@@ -139,84 +171,21 @@ a{text-decoration:none;color:inherit}
 </style>
 </head>
 <body>
-<style>
 
-#navbar{position:fixed;top:0;left:0;right:0;z-index:9000;background:#0e0d0b;border-bottom:1px solid rgba(255,255,255,0.08);box-shadow:0 2px 16px rgba(0,0,0,0.3)}
-.nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:66px;max-width:1280px;margin:0 auto}
-@media(max-width:640px){.nav-wrap{padding:0 18px}}
-.nav-logo a{display:flex;align-items:center;height:66px;text-decoration:none;flex-shrink:0}
-  /* Brand (Logo + Name) */
-.brand-wrap{
-  display:flex;
-  align-items:center;
-  gap:14px;
-}
-
-.brand-logo{
-  height:100%;
-  max-height:66px;
-  width:auto;
-  object-fit:contain;
-  display:block;
-}
-
-.brand-name{
-  font-family:'Playfair Display', serif;
-  font-size:22px;
-  font-weight:600;
-  letter-spacing:1px;
-  background:linear-gradient(135deg,#f5f2ec,#c9a84c);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  display:inline-block;
-}
-
-/* subtle gold accent */
-.brand-name span{
-  background:linear-gradient(135deg,#c9a84c,#e0be6a);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-/* hover effect */
-.brand-wrap:hover .brand-name{
-  color:#e0be6a;
-}
-.nav-links-c{display:flex;align-items:center;gap:4px}
-.nav-links-c a{font-size:14px;font-weight:400;color:rgba(255,255,255,0.62);padding:8px 14px;border-radius:6px;text-decoration:none;transition:color .2s}
-.nav-links-c a:hover{color:#fff}
-.nav-cta-r{display:flex;align-items:center;gap:10px}
-.btn-ng{background:transparent;color:rgba(255,255,255,0.82);border:1.5px solid rgba(255,255,255,0.22);padding:9px 20px;border-radius:10px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center}
-.btn-ng:hover{border-color:rgba(255,255,255,0.55);color:#fff}
-.btn-go{background:linear-gradient(135deg,#b8860b,#d4a017);color:#fff;border:none;padding:9px 20px;border-radius:10px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
-.btn-go:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(184,134,11,0.38)}
-.nav-hbg{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
-.nav-hbg span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
-.nav-hbg.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.nav-hbg.open span:nth-child(2){opacity:0;transform:scaleX(0)}
-.nav-hbg.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-@media(max-width:900px){.nav-links-c{display:none}.nav-cta-r .btn-ng,.nav-cta-r .btn-go{display:none}.nav-hbg{display:flex}}
-.mob-ov{position:fixed;inset:0;background:rgba(0,0,0,0.52);z-index:8998;opacity:0;pointer-events:none;transition:opacity .3s}
-.mob-ov.open{opacity:1;pointer-events:all}
-.mob-drw{position:fixed;top:0;right:0;bottom:0;width:288px;background:#0e0d0b;z-index:8999;display:flex;flex-direction:column;padding:22px 18px 32px;box-shadow:-4px 0 40px rgba(0,0,0,0.45);transform:translateX(100%);transition:transform .32s cubic-bezier(.4,0,.2,1)}
-.mob-drw.open{transform:translateX(0)}
-.mob-drw-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
-.mob-drw-hd img{height:40px;width:auto}
-.mob-cls{background:rgba(255,255,255,0.08);border:none;border-radius:8px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:rgba(255,255,255,0.7);transition:all .2s}
-.mob-cls:hover{background:rgba(255,255,255,0.16);color:#fff}
-.mob-lks{display:flex;flex-direction:column;flex:1}
-.mob-lks a{display:block;padding:13px 10px;font-size:16px;color:rgba(255,255,255,0.72);border-bottom:1px solid rgba(255,255,255,0.07);text-decoration:none;transition:color .2s}
-.mob-lks a:hover{color:#fff}
-.mob-acts{display:flex;flex-direction:column;gap:9px;margin-top:22px}
-.mob-acts .btn-ng{display:block;text-align:center;padding:12px}
-.mob-acts .btn-go{display:block;text-align:center;padding:12px;justify-content:center}
-.mob-theme{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:12px 14px;font-family:'Outfit',sans-serif;font-size:14px;color:rgba(255,255,255,0.65);cursor:pointer;display:flex;align-items:center;gap:10px;transition:all .2s;width:100%;margin-top:2px}
-.mob-theme:hover{background:rgba(255,255,255,0.1);color:#fff}
-
-</style>
 <nav id="navbar">
   <div class="nav-wrap">
-    <div class="nav-logo"><a href="../index.html"><img src="../logo-nav.png" alt="CryptoVault" style="height:42px;width:auto;display:block"></a></div>
+    <div class="nav-logo">
+      <a href="../index.html" class="brand-wrap">
+        <img src="../logo-nav.png" alt="CryptoVault Logo" class="brand-logo">
+        <span class="brand-name">Crypto<span>Vault</span></span>
+      </a>
+    </div>
+    <div class="nav-links-c">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#plans">Plans</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
     <div class="nav-cta-r">
       <a href="login.html" class="btn-ng">Sign In</a>
       <button class="nav-hbg" id="navHbg" onclick="toggleDrw()" aria-label="Menu">
@@ -225,10 +194,13 @@ a{text-decoration:none;color:inherit}
     </div>
   </div>
 </nav>
+
 <div class="mob-ov" id="mobOv" onclick="closeDrw()"></div>
 <div class="mob-drw" id="mobDrw">
   <div class="mob-drw-hd">
-    <a href="../index.html"><img src="../logo-nav.png" alt="CryptoVault" style="height:42px;width:auto;display:block"></a>
+    <a href="../index.html">
+      <img src="../logo-nav.png" alt="CryptoVault" style="height:42px;width:auto;display:block">
+    </a>
     <button class="mob-cls" onclick="closeDrw()">
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
     </button>
@@ -247,6 +219,7 @@ a{text-decoration:none;color:inherit}
     </button>
   </div>
 </div>
+
 <script>
 function toggleDrw(){const h=document.getElementById('navHbg'),d=document.getElementById('mobDrw'),o=document.getElementById('mobOv');const op=!d.classList.contains('open');h.classList.toggle('open',op);d.classList.toggle('open',op);o.classList.toggle('open',op);document.body.style.overflow=op?'hidden':'';}
 function closeDrw(){document.getElementById('navHbg').classList.remove('open');document.getElementById('mobDrw').classList.remove('open');document.getElementById('mobOv').classList.remove('open');document.body.style.overflow='';}
@@ -255,16 +228,6 @@ function applyTheme(t){_h.setAttribute('data-theme',t);localStorage.setItem('cv_
 function toggleTheme(){applyTheme(_h.getAttribute('data-theme')==='dark'?'light':'dark');}
 applyTheme(localStorage.getItem('cv_theme')||'light');
 </script>
-
-<!-- TOP BAR -->
-<div class="top-bar">
-  <a href="../index.html" class="logo">
-    <img src="../logo-nav.png" alt="CryptoVault" style="height:40px;width:auto;display:block">
-  </a>
-  <div class="top-bar-right">
-    <a href="login.html" class="btn-top-outline">Sign In</a>
-  </div>
-</div>
 
 <!-- MAIN -->
 <div class="auth-main">
@@ -420,17 +383,6 @@ applyTheme(localStorage.getItem('cv_theme')||'light');
 </div>
 
 <script>
-/* THEME */
-const html = document.documentElement;
-function applyTheme(t) {
-  html.setAttribute('data-theme', t);
-  localStorage.setItem('cv_theme', t);
-  const btn = document.getElementById('themeIconTopbar');
-  if (btn) btn.textContent = t === 'dark' ? '☀️' : '🌙';
-}
-function toggleTheme() { applyTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'); }
-applyTheme(localStorage.getItem('cv_theme') || 'light');
-
 /* STEPS */
 let currentStep = 1;
 let selectedPlan = 'accelerator';
@@ -489,7 +441,6 @@ function selectPlan(el, plan) {
 function createAccount() {
   const btn = document.getElementById('createBtn');
   btn.disabled = true; btn.textContent = 'Creating account…';
-  // TODO: POST /api/auth/register
   setTimeout(() => {
     document.getElementById('step3').classList.remove('active');
     document.getElementById('stepSuccess').classList.add('active');
