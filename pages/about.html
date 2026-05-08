@@ -53,17 +53,17 @@ a{text-decoration:none;color:inherit}
 @media(max-width:768px){.section{padding:64px 0}}
 
 /* NAV */
-#navbar{position:fixed;top:0;left:0;right:0;z-index:999;padding:18px 0;transition:all .35s}
-#navbar.scrolled{background:var(--nav-bg);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:12px 0;box-shadow:var(--shadow-sm)}
+#navbar{position:fixed;top:0;left:0;right:0;z-index:999;padding:18px 0;transition:all .35s;background:#0e0d0b;border-bottom:1px solid rgba(255,255,255,0.08);box-shadow:0 2px 16px rgba(0,0,0,0.3)}
+#navbar.scrolled{background:#0e0d0b;border-bottom:1px solid rgba(255,255,255,0.08);padding:12px 0;box-shadow:0 2px 16px rgba(0,0,0,0.3)}
 .nav-inner{display:flex;align-items:center}
-.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.logo-icon{width:34px;height:34px;background:linear-gradient(135deg,var(--gold),var(--gold-2));border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff}
-.logo-name{font-family:'Playfair Display',serif;font-size:19px;font-weight:500;color:var(--ink)}
-.logo-name span{color:var(--gold)}
+.logo{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.brand-logo{height:46px;width:auto;object-fit:contain;display:block}
+.logo-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;letter-spacing:1px;background:linear-gradient(135deg,#f5f2ec,#c9a84c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:inline-block}
+.logo-name span{background:linear-gradient(135deg,#c9a84c,#e0be6a);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .nav-center{flex:1;display:flex;justify-content:center}
 .nav-links{display:flex;align-items:center;gap:2px}
-.nav-links a{font-size:14px;font-weight:400;color:var(--muted);padding:8px 14px;border-radius:var(--r);transition:color .2s}
-.nav-links a:hover{color:var(--ink)}
+.nav-links a{font-size:14px;font-weight:400;color:rgba(255,255,255,0.62);padding:8px 14px;border-radius:var(--r);transition:color .2s}
+.nav-links a:hover{color:#fff}
 .nav-right{display:flex;align-items:center;gap:10px}
 .theme-btn{width:38px;height:38px;border-radius:var(--r2);background:var(--bg-2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;color:var(--muted)}
 .theme-btn:hover{background:var(--bg-3);color:var(--gold);border-color:var(--gold-border)}
@@ -75,7 +75,7 @@ a{text-decoration:none;color:inherit}
 .btn-outline:hover{border-color:var(--gold);color:var(--gold)}
 .btn-outline-lg{padding:15px 36px;font-size:15px;border-radius:var(--r3)}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;margin-left:8px}
-.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
@@ -170,7 +170,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--border);padding:48px 0 
 <nav id="navbar">
   <div class="container">
     <div class="nav-inner">
-      <a href="../index.html" class="logo"><div class="logo-icon">V</div><span class="logo-name">Crypto<span>Vault</span></span></a>
+      <a href="../index.html" class="logo"><img src="../logo-nav.png" alt="CryptoVault Logo" class="brand-logo"><span class="logo-name">Crypto<span>Vault</span></span></a>
       <div class="nav-center">
         <div class="nav-links">
           <a href="../index.html#features">Features</a>
@@ -340,7 +340,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--border);padding:48px 0 
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="../index.html" class="logo"><div class="logo-icon">V</div><span class="logo-name" style="margin-left:10px">Crypto<span>Vault</span></span></a>
+        <a href="../index.html" class="logo"><img src="../logo-nav.png" alt="CryptoVault Logo" class="brand-logo"><span class="logo-name">Crypto<span>Vault</span></span></a>
         <p>Institutional-grade crypto investment management for individual investors worldwide.</p>
       </div>
       <div class="footer-col"><h5>Platform</h5><a href="register.html">Create Account</a><a href="login.html">Sign In</a><a href="../index.html#plans">Plans</a></div>
