@@ -16,26 +16,24 @@ a{text-decoration:none;color:inherit}
 .display{font-family:'Playfair Display',serif;line-height:1.08;letter-spacing:-.02em}
 .container{max-width:1180px;margin:0 auto;padding:0 40px}
 @media(max-width:768px){.container{padding:0 20px}}
-#navbar{position:fixed;top:0;left:0;right:0;z-index:999;padding:18px 0;transition:all .35s;background:var(--nav-bg);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);box-shadow:var(--shadow-sm)}
+#navbar{position:fixed;top:0;left:0;right:0;z-index:999;padding:18px 0;background:#0e0d0b;border-bottom:1px solid rgba(255,255,255,0.08);box-shadow:0 2px 16px rgba(0,0,0,0.3)}
 .nav-inner{display:flex;align-items:center}
-.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.logo-icon{width:34px;height:34px;background:linear-gradient(135deg,var(--gold),var(--gold-2));border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff}
-.logo-name{font-family:'Playfair Display',serif;font-size:19px;font-weight:500;color:var(--ink)}
-.logo-name span{color:var(--gold)}
+.logo{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.brand-logo{height:46px;width:auto;object-fit:contain;display:block}
+.logo-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;letter-spacing:1px;background:linear-gradient(135deg,#f5f2ec,#c9a84c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:inline-block}
+.logo-name span{background:linear-gradient(135deg,#c9a84c,#e0be6a);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .nav-center{flex:1;display:flex;justify-content:center}
 .nav-links{display:flex;align-items:center;gap:2px}
 .nav-links a{font-size:14px;color:var(--muted);padding:8px 14px;border-radius:var(--r);transition:color .2s}
 .nav-links a:hover{color:var(--ink)}
 .nav-right{display:flex;align-items:center;gap:10px}
-.theme-btn{width:38px;height:38px;border-radius:var(--r2);background:var(--bg-2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--muted);transition:all .2s}
-.theme-btn:hover{color:var(--gold);border-color:var(--gold-border)}
 .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif;font-weight:500;cursor:pointer;transition:all .22s;border-radius:var(--r2);border:none;white-space:nowrap;text-decoration:none}
 .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#fff;padding:9px 20px;font-size:13px;font-weight:600}
 .btn-gold:hover{transform:translateY(-1px)}
 .btn-outline{background:transparent;color:var(--ink);border:1.5px solid var(--border-2);padding:9px 20px;font-size:13px}
 .btn-outline:hover{border-color:var(--gold);color:var(--gold)}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;margin-left:8px}
-.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .hamburger.open span:nth-child(2){opacity:0}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
